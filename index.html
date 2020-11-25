@@ -1,12 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+    <link rel="stylesheet" href="reset.css">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="fontawesome/all.css">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;700&display=swap" rel="stylesheet">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shop-project</title>
 </head>
+
 <body>
-    
+    <header class="header">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="logo">
+                        <img src="img/logo.png" alt="">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <nav>
+                        <ul class="menu">
+                            <li><a href="">Home</a></li>
+                            <li><a href="">Products <i class="fas fa-angle-down fa-xs"></i></a></li>
+                            <li><a href="">Payment</a></li>
+                            <li><a href="">Shipping</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="col-md-3">
+                    <div class="search-area">
+                        <form action="">
+                            <input type="search" placeholder="search" class="search">
+                            <button class="search-button">
+                                <img src="img/search.png" alt="">
+                            </button>
+                        </form>
+                    </div>
+                    <div class="cart">
+                        <button class="cart-button">
+                            <img src="img/basket.png" alt="">
+                        </button>
+                        <div class="cart-count">4</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
 </body>
+
 </html>
