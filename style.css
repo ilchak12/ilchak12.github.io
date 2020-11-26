@@ -106,13 +106,20 @@ header {
     cursor: pointer;
 }
 
-.cart {
+.cart-widget {
     float: right;
     position: relative;
     margin-top: 6px;
 }
 
-.cart-count {
+.cart {
+    width: 40px;
+    height: 40px;
+    background: url(img/basket.png) no-repeat center #fff;
+    cursor: pointer;
+}
+
+.product-count {
     width: 20px;
     height: 20px;
     border-radius: 50%;
@@ -123,12 +130,4 @@ header {
     text-align: center;
     color: white;
     line-height: 20px;
-}
-
-.cart-button {
-    width: 40px;
-    height: 40px;
-    border: none;
-    outline: none;
-    cursor: pointer;
 }
