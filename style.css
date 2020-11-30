@@ -10,6 +10,7 @@ body {
 header {
     background-color: rgba(255, 255, 255, 0.75);
     padding: 25px 0;
+    height: 100px;
 }
 
 .container {
@@ -48,17 +49,19 @@ header {
     margin-top: 8px;
 }
 
-.menu li {
+.menu > li {
+    position: relative;
     width: 25%;
     float: left;
+    height: 50px;
     border-left: 1px solid #2c71b8;
 }
 
-.menu li:last-child {
+.menu > li:last-child {
     border-right: 1px solid #2c71b8;
 }
 
-.menu a {
+.menu > li > a {
     display: block;
     text-decoration: none;
     text-align: center;
@@ -68,7 +71,7 @@ header {
     color: #2c71b8;
 }
 
-.menu a:hover {
+.menu > li > a:hover {
     background-color: #2c71b8;
     color: white;
 }
@@ -130,4 +133,38 @@ header {
     text-align: center;
     color: white;
     line-height: 20px;
+}
+
+.submenu {
+    position: absolute;
+    left: -1px;
+    visibility: hidden;
+    opacity: 0;
+}
+
+.submenu a {
+    display: block;
+    font-size: 21px;
+    width: 201%;
+    height: max-content;
+    line-height: 40px;
+    background-color: #2c71b8;
+    color: white;
+    text-decoration: none;
+    padding-left: 30px;
+}
+
+.submenu a:hover {
+    background-color: white;
+    color: #2c71b8;
+}
+
+nav li:hover > .submenu {
+    visibility: visible;
+    opacity: 1;
+}
+
+.menu > li:hover > a {
+    background-color: #2c71b8;
+    color: white;
 }
