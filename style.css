@@ -359,7 +359,7 @@ nav li:hover > .submenu {
     top: 10px;
 }
 
-.zoom-icon:hover, .heart-icon:hover {
+.zoom-icon:hover, .heart-icon:hover, .icon-active {
     color: white;
     background-color: #2c71b8;
 }
@@ -496,7 +496,42 @@ nav li:hover > .submenu {
     display: block;
 }
 
-.icon-active {
-    color: white;
+.product-quantity {
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.product-quantity button {
+    padding: 3px 8px;
+    outline: none;
+    border: 1px solid white;
     background-color: #2c71b8;
+    color: white;
+    font-size: 18px;
+    height: 30px;
+    width: 30px;
+    border-radius: 30%;
+    transition: all 0.2s ease-in-out;
+}
+
+.product-quantity button:disabled {
+    background-color: rgba(255, 255, 255, 0.5);
+    color: black;
+}
+
+.product-quantity input,
+.product-quantity {
+    text-align: center;
+}
+
+.product-quantity input {
+    outline: none;
+    border: 1px solid white;
+    background-color: transparent;
+    color: white;
+    width: 50px;
+    height: 25px;
+    font-size: 18px;
+    margin: 0 10px;
 }
