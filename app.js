@@ -53,42 +53,42 @@ likeIcon.forEach(el => {
 ///////////////////////////////////////////////
 //change product count
 
-let dekBtn = document.querySelectorAll(".dek-btn");
-let inkBtn = document.querySelectorAll(".ink-btn");
-let countValue = document.querySelectorAll(".product-quantity input");
+// let dekBtn = document.querySelectorAll(".dek-btn");
+// let inkBtn = document.querySelectorAll(".ink-btn");
+// let countValue = document.querySelectorAll(".product-quantity input");
 
-let minCount = 1;
-let maxCount = 5;
+// let minCount = 1;
+// let maxCount = 5;
 
-function toggleBtn(count, i) {
-    dekBtn[i].disabled = count <= minCount;
-    inkBtn[i].disabled = count >= maxCount;
-}
+// function toggleBtn(count, i) {
+//     dekBtn[i].disabled = count <= minCount;
+//     inkBtn[i].disabled = count >= maxCount;
+// }
 
-for(let i = 0; i < countValue.length; i++) {
-    let currentCount = +countValue[i].value;
-    toggleBtn(currentCount, i);
-}
+// for(let i = 0; i < countValue.length; i++) {
+//     let currentCount = +countValue[i].value;
+//     toggleBtn(currentCount, i);
+// }
 
-for(let i = 0; i < dekBtn.length; i++) {
-    dekBtn[i].addEventListener('click', function() {
-        let currentCount = +countValue[i].value;
-        let newCount = currentCount - 1;
-        countValue[i].value = newCount;
+// for(let i = 0; i < dekBtn.length; i++) {
+//     dekBtn[i].addEventListener('click', function() {
+//         let currentCount = +countValue[i].value;
+//         let newCount = currentCount - 1;
+//         countValue[i].value = newCount;
 
-        toggleBtn(newCount, i);
-    })
-}
+//         toggleBtn(newCount, i);
+//     })
+// }
 
-for(let i = 0; i < inkBtn.length; i++) {
-    inkBtn[i].addEventListener('click', function() {
-        let currentCount = +countValue[i].value;
-        let newCount = currentCount + 1;
-        countValue[i].value = newCount;
+// for(let i = 0; i < inkBtn.length; i++) {
+//     inkBtn[i].addEventListener('click', function() {
+//         let currentCount = +countValue[i].value;
+//         let newCount = currentCount + 1;
+//         countValue[i].value = newCount;
 
-        toggleBtn(newCount, i);
-    })
-}
+//         toggleBtn(newCount, i);
+//     })
+// }
 
 ////
 
@@ -120,3 +120,52 @@ for(let i = 0; i < inkBtn.length; i++) {
 // console.log(bmw);
 
 
+let dekBtns = document.querySelectorAll(".dek-btn");
+let inkBtns = document.querySelectorAll(".ink-btn");
+let countValue = document.querySelectorAll(".product-quantity input");
+
+function Counter(inkBtn, dekBtn, inputField, minCount = 1, maxCount = 5) {
+    this.domRefs = {
+        inkBtn,
+        dekBtn,
+        inputField,
+    }
+
+    this.toggleBtn = function () {
+        let count = this.domRefs.inputField.value;
+        this.domRefs.dekBtn.disabled = count <= minCount;
+        this.domRefs.inkBtn.disabled = count >= maxCount;
+    }
+
+    this.toggleBtn();
+
+    this.inkrement = function() {
+        let currentCount = +this.domRefs.inputField.value;
+        let newCount = currentCount + 1;
+        this.domRefs.inputField.value = newCount;
+
+        this.toggleBtn();
+    }
+
+    this.dekrement = function() {
+        let currentCount = +this.domRefs.inputField.value;
+        let newCount = currentCount - 1;
+        this.domRefs.inputField.value = newCount;
+
+        this.toggleBtn();
+    }
+
+    this.domRefs.inkBtn.addEventListener("click", this.inkrement.bind(this));
+    this.domRefs.dekBtn.addEventListener("click", this.dekrement.bind(this));
+}
+
+for(let i = 0; i < countValue.length; i++) {
+    const countre = new Counter(inkBtns[i], dekBtns[i], countValue[i]);
+}
+
+///////////////////////////////////////////////
+//SLIDER//
+
+$(".slider-block").slick({
+    dots: true,
+});
